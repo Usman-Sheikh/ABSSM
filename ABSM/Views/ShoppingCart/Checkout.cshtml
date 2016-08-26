@@ -1,0 +1,107 @@
+﻿@model ABSM.ViewModels.CheckoutViewModel
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<!-- Titlebar
+================================================== -->
+<section class="titlebar">
+    <div class="container">
+        <div class="sixteen columns">
+            <h2>Checkout</h2>
+
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Checkout</a></li>
+                    <li>Billing Details</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Content
+================================================== -->
+<!-- Container -->
+<div class="container">
+    <div class="eight columns">
+        <!-- Billing Details Content -->
+        <div class="checkout-section cart">Billing Information</div>
+        <div class="checkout-content">
+            <form action="@Url.Action("Checkout")" method="POST" id="braintree-payment-form">
+                @Html.AntiForgeryToken()
+                <h2>Checkout</h2>
+                @Html.ValidationSummary()
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.FullName)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.FullName)</div>
+                    </p>
+                  
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Address)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Address)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.City)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.City)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.State)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.State)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.PostalCode)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.PostalCode)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Country)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Country)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Phone)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Phone)</div>
+                    </p>
+                  
+                </fieldset>
+                <fieldset>
+                    <legend>Payment Information</legend>
+                    <p>
+                        <label>Card Number</label>
+                        <input type="text" size="20" autocomplete="off" data-encrypted-name="CardNumber" />
+                    </p>
+                    <p>
+                        <label>CVV</label>
+                        <input type="text" size="4" autocomplete="off" data-encrypted-name="Cvv" />
+                    </p>
+                    <p>
+                        <label>Expiration (MM/YYYY)</label>
+                        <input type="text" size="2" name="Month" /> / <input type="text" size="4" name="Year" />
+                    </p>
+                </fieldset>
+                <input class="submit-button" type="submit" />
+            </form>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+       
+
+    </div>
+
+
+</div>
+<!-- Container / End -->
+<div class="margin-top-50"></div>
+
+@section scripts {
+    <script src="https://js.braintreegateway.com/v1/braintree.js"></script>
+    <script>
+        var braintree = Braintree.create("MIIBCgKCAQEA1wdzEuM9dMvAVQg/fgVYpdytsvzeJ5tEzwbRLZhCeztcxv6Q5kKTNWDBdOsNYZer3Ahhu1NP5qOhptNoXmFh+dUD1SHoHkNMfLHOrw1w3hv4V5kXQVwVMZJZSXuiBj+ABVJgFCB2cEg+ikUF95knG+1qDVmKhUmFd3TYtXcRZWsc4PWr+ZyCbNCjtt4AsFjpVB0I9NfRZg8bIX0dbico9O/ks6Abn4oUfWiA9Jn7xqu/DNrkHp3gcxs7VW0aKYnyRDAVR9PjH7/OQFAVB0zEEUHf9+Z53Y9OHIbRJTrN8nlj7+IC5kuM6L6oYNx6tdLSgNT3tMrWWV0mnx2xHRhPrQIDAQAB");
+
+        braintree.onSubmitEncryptForm("braintree-payment-form");
+    </script>
+}

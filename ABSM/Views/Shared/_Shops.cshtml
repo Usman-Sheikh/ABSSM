@@ -1,0 +1,10 @@
+﻿
+
+<ul>
+    @foreach (var item in ViewBag.Names)
+    {
+        <li><a href="~/Shop/Index/@item.Value">@item.Text</a></li>
+
+    }
+    
+</ul>

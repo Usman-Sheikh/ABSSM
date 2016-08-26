@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Dashboard", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+<a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+   aria-haspopup="false" aria-expanded="false">
+    <img src="~/Areas/Admin/Images/users/avatar-1.jpg" alt="user" class="img-circle">
+</a>
+<div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
+    <!-- item-->
+    <div class="dropdown-item noti-title">
+        <h5 class="text-overflow"><small>Welcome ! @User.Identity.GetUserName()</small> </h5>
+    </div>
+    <!-- item-->
+   
+    <!-- item-->
+    <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item notify-item">
+        <i class="zmdi zmdi-power"></i> <span>Logout</span>
+    </a>
+</div>
+    }
+}

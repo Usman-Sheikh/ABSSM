@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ABSM.Models.Product>
+
+<div class="container margin-top-5">
+    <!-- Headline -->
+    <div class="sixteen columns">
+        <h3 class="headline">Related Products</h3>
+        <span class="line margin-bottom-0"></span>
+    </div>
+    <!-- Products -->
+    <div class="products">
+        <!-- Product #1 -->
+        @foreach (var product in Model)
+        {
+            <div class="four columns">
+                <figure class="product">
+                    <div class="mediaholder">
+                        <a href="@Url.Action("Details", new { id = product.ProductID })">
+                            <img alt="" src="@Url.Content(product.ImageUrl)" />
+                            <div class="cover">
+                                <img alt="" src="@Url.Content(product.ImageUrl)" />
+                            </div>
+                        </a>
+                        <a href="@Url.Action("AddtoCart","ShoppingCart", new { id = product.ProductID })" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                    </div>
+                    <a href="#">
+                        <section>
+                           
+                            <h5>@product.Name</h5>
+                            <span class="product-price">@product.Price</span>
+                        </section>
+                    </a>
+                </figure>
+            </div>
+        }
+        
+      
+    </div>
+</div>

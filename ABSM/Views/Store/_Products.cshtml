@@ -1,0 +1,50 @@
+﻿@model ABSM.ViewModels.CategoryProductViewModel
+   
+    <div class="twelve columns products">
+        <!-- Product #1 -->
+        @foreach (var product in Model.products)
+{
+            <div class="four shop columns">
+                <figure class="product">
+                    <div class="mediaholder">
+                        <a href="@Url.Action("Details", new { id = product.ProductID })">
+                            <img alt="" src="@Url.Content(product.ImageUrl)" />
+                            <div class="cover">
+                                <img alt="" src="@Url.Content(product.ImageUrl)" />
+                            </div>
+                        </a>
+                        <a href="@Url.Action("AddtoCart","ShoppingCart", new { id = product.ProductID })" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+
+
+                    </div>
+                    <a href="variable-product-page.html">
+                        <section>
+                            @*<span class="product-category">@product.Category.Name</span>*@
+                            <h5>@product.Name</h5>
+                            <span class="product-price">@product.Price</span>
+                        </section>
+                    </a>
+                </figure>
+            </div>
+}
+
+        <div class="clearfix"></div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <nav class="pagination">
+                <ul>
+                    <li><a href="#" class="current-page">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </nav>
+            <nav class="pagination-next-prev">
+                <ul>
+                    <li><a href="#" class="prev"></a></li>
+                    <li><a href="#" class="next"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+

@@ -1,0 +1,92 @@
+﻿@model ABSM.ViewModels.IncomeViewModel
+@{
+    ViewBag.Title = "Income";
+}
+
+<h2>Income</h2>
+<h3>@ViewBag.Message</h3>
+<form method="post">
+    <label>Month</label>
+    @Html.DropDownList("Month", new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Select Month"},
+                            new SelectListItem{ Text="January", Value = "1" },
+                            new SelectListItem{ Text="February", Value = "2" },
+                            new SelectListItem{ Text="March", Value = "3" },
+                            new SelectListItem{ Text="April", Value = "4" },
+                            new SelectListItem{ Text="May", Value = "5" },
+                            new SelectListItem{ Text="June", Value = "6" },
+                            new SelectListItem{ Text="July", Value = "7" },
+                            new SelectListItem{ Text="August", Value = "8" },
+                            new SelectListItem{ Text="September", Value = "9" },
+                            new SelectListItem{ Text="October", Value = "10" },
+                            new SelectListItem{ Text="November", Value = "11" },
+                            new SelectListItem{ Text="December", Value = "12" },
+                         
+                         })
+    <button type="submit"  class="btn btn-primary waves-effect waves-light" >Search</button>
+</form>
+
+
+    <!-- <div class="panel-heading">
+        <h4>Invoice</h4>
+    </div> -->
+    <div class="panel-body">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h3 class="logo">Monthly Income</h3>
+            </div>
+            
+        </div>
+        <hr>
+        
+        <!-- end row -->
+    
+        <div class="m-h-50"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table m-t-30">
+                        <thead class="bg-faded">
+                            <tr>
+                                <th>#</th>
+                                <th>Product </th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                int i = 0;
+                                i = i + 1;
+                                <tr>
+                                    <th scope="row">@i</th>
+                                    <td>@item.Product.Name</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.UnitPrice</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+                
+                <hr>
+                <h3 class="text-xs-right">PKR @Model.Total</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="hidden-print">
+            <div class="pull-xs-right">
+                <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+

@@ -1,0 +1,98 @@
+﻿@model ABSM.ViewModels.PaymentCheckoutViewModel
+@{
+    ViewBag.Title = "CheckoutEasyPaisa";
+}
+
+<h2>CheckoutEasyPaisa</h2>
+
+<!-- Titlebar
+================================================== -->
+<section class="titlebar">
+    <div class="container">
+        <div class="sixteen columns">
+            <h2>Checkout Easy Paisa</h2>
+
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Checkout</a></li>
+                    <li>Billing Details</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Content
+================================================== -->
+<!-- Container -->
+<div class="container">
+    <div class="eight columns">
+        <!-- Billing Details Content -->
+        <div class="checkout-section cart">Billing Information</div>
+        <div class="checkout-content">
+            <form action="@Url.Action("CheckoutEasyPaisa")" method="POST">
+                @Html.AntiForgeryToken()
+                <h2>Checkout</h2>
+                @Html.ValidationSummary()
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.FullName)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.FullName)</div>
+                    </p>
+
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Address)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Address)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.City)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.City)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.State)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.State)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.PostalCode)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.PostalCode)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Country)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Country)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Phone)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Phone)</div>
+                    </p>
+                    <p>
+                        <div class="editor-label">@Html.LabelFor(m => m.Email)</div>
+                        <div class="editor-field">@Html.EditorFor(m => m.Email)</div>
+                    </p>
+                    <p>
+                        @Html.DropDownList("PaymentMode", new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Select Payment Mode"},
+                            new SelectListItem{ Text="Easy Paisa", Value = "Easy Paisa" },
+                            new SelectListItem{ Text="Cash On Delivery", Value = "Cash On Delivery" },
+                         })
+                    </p>
+                </fieldset>
+
+
+                <input class="submit-button" type="submit" />
+            </form>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+
+
+    </div>
+
+
+</div>
+<!-- Container / End -->
+<div class="margin-top-50"></div>

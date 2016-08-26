@@ -1,0 +1,85 @@
+﻿@model ABSM.Models.Product
+@{
+    ViewBag.Title = Model.Name + " Details";
+}
+
+<section class="titlebar">
+    <div class="container">
+        <div class="sixteen columns">
+            <h2>Shop</h2>
+
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li>Hats</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Slider
+    ================================================== -->
+    <div class="eight columns">
+        <div class="slider-padding">
+            <img src="@Url.Content(Model.ImageUrl)" />
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!-- Content
+    ================================================== -->
+    <div class="eight columns">
+        <div class="product-page">
+
+            <!-- Headline -->
+            <section class="title">
+                <h2>@Model.Name</h2>
+                <span class="product-price">@Html.DisplayFor(m => m.Price)</span>
+            </section>
+            <!-- Text Parapgraph -->
+            <section>
+                <p class="margin-reset">@Model.ShortDescription</p>
+                <!-- Share Buttons -->
+
+                <div class="clearfix"></div>
+
+            </section>
+            <p><b>Quantity: &nbsp;</b>@Model.Quantity</p>
+            <section class="linking">
+
+
+                <a href="@Url.Action("AddtoCart", "ShoppingCart", new { id = Model.ProductID })" class="button adc">  Add to Cart</a>
+
+                <a href="@Url.Action("Index", "Shop", new { id = Model.ShopID })" class="button"> Visit Shop</a>
+
+
+                <div class="clearfix"></div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sixteen columns">
+        <!-- Tabs Navigation -->
+        <ul class="tabs-nav">
+            <li class="active"><a href="#tab1">Item Description</a></li>
+
+        </ul>
+        <!-- Tabs Content -->
+        <div class="tabs-container">
+            <div class="tab-content" id="tab1">
+                <p>@Model.LongDescription</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Related Products -->
+@{Html.RenderAction("Products", "Shop",new {id=Model.ShopID});}
+<div class="margin-top-50"></div>
+

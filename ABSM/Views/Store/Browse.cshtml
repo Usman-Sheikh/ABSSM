@@ -1,0 +1,80 @@
+﻿@model ABSM.ViewModels.CategoryProductViewModel
+@{
+    ViewBag.Title = "Browse";
+}
+
+<!-- Titlebar
+================================================== -->
+<section class="parallax-titlebar fullwidth-element" data-background="#000" data-opacity="0.45" data-height="160">
+    <img src="~/images/titlebar_bg_01.jpg" alt="" />
+    <div class="parallax-overlay"></div>
+
+    <div class="parallax-content">
+        <h2>Shop <span>International Shipping</span></h2>
+        <nav id="breadcrumbs">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li>Products</li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Sidebar
+    ================================================== -->
+    <form id="CategoryForm" method="post">
+        <div class="four columns">
+            <!-- Categories -->
+            <div class="widget margin-top-0">
+                <h3 class="headline">Categories</h3><span class="line"></span><div class="clearfix"></div>
+                <ul id="categories">
+                    @foreach (var item in Model.categories)
+                    {
+                        <li id="listItem">
+                            @Ajax.ActionLink(item.Name, "Browse", new { name = item.Name },new AjaxOptions {UpdateTargetId= "p1", InsertionMode=InsertionMode.ReplaceWith })
+
+
+                        </li>
+                    }
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+            <!-- Widget -->
+            <div class="widget">
+                <h3 class="headline">Filter By Price</h3><span class="line"></span><div class="clearfix"></div>
+                <div id="price-range">
+                    <div class="padding-range"><div id="slider-range"></div></div>
+                    <label for="amount">Price:</label>
+                    <input type="text" id="amount" />
+                    <a href="#" class="button color">Filter</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </form>
+    <!-- Content
+    ================================================== -->
+    <div class="twelve columns">
+        <!-- Ordering -->
+        <select class="orderby">
+            <option>Default Sorting</option>
+            <option>Sort by Popularity</option>
+            <option>Sort by Newness</option>
+        </select>
+    </div>
+    <!-- Products -->
+    <div id="p1">
+        @Html.Partial("_Products", Model)
+    </div>
+</div>
+<div class="margin-top-15"></div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+ 
+}

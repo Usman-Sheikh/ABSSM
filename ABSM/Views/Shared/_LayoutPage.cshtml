@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+ <!--<![endif]-->
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/colors/green.css" id="colors">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="boxed">
+    <div id="wrapper">
+
+        <!-- Top Bar
+        ================================================== -->
+        <div id="top-bar">
+            <div class="container">
+                <!-- Top Bar Menu -->
+                <div class="ten columns">
+                    <ul class="top-bar-menu">
+                        <li><i class="fa fa-phone"></i> (564) 123 4567</li>
+                        <li><i class="fa fa-envelope"></i> <a href="#">mail@example.com</a></li>
+                        <li>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+                <!-- Social Icons -->
+                <div class="six columns">
+                    <ul class="top-bar-menu">
+                        <li><i class="fa fa-user"></i><a href="@Url.Action("Login","Dashboard",new { area="Admin"})">Admin</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- Header
+        ================================================== -->
+        <div class="container">
+
+            <!-- Logo -->
+            <div class="four columns">
+                <div id="logo">
+                    <h1><a href="index.html"><img src="~/images/logo.png" alt="Trizzy" /></a></h1>
+                </div>
+            </div>
+
+            <!-- Additional Menu -->
+            <div class="twelve columns">
+                <div id="additional-menu">
+                    <ul>
+                        <li><a href='@Url.Action("Index", "ShoppingCart")'>Shopping Cart</a></li>
+                       
+                        <li><a href="my-account.html">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Shopping Cart -->
+            <div class="twelve columns">
+                <div id="cart">
+                    <!-- Button -->
+                    <div class="cart-btn">
+                        <a href="#" class="button adc">$178.00</a>
+                    </div>
+                    <div class="cart-list">
+                        <div class="arrow"></div>
+                        <div class="cart-amount">
+                            <span>2 items in the shopping cart</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#"><img src="~/images/small_product_list_08.jpg" alt="" /></a>
+                                <a href="#">Converse All Star Trainers</a>
+                                <span>1 x $79.00</span>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#"><img src="~/images/small_product_list_09.jpg" alt="" /></a>
+                                <a href="#">Tommy Hilfiger <br /> Shirt Beat</a>
+                                <span>1 x $99.00</span>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                        <div class="cart-buttons button">
+                            <a href="shopping-cart.html" class="view-cart"><span data-hover="View Cart"><span>View Cart</span></span></a>
+                            <a href="checkout-billing-details.html" class="checkout"><span data-hover="Checkout">Checkout</span></a>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <!-- Search -->
+                <nav class="top-search">
+                    <form action="#" method="get">
+                        <button><i class="fa fa-search"></i></button>
+                        <input class="search-field" type="text" placeholder="Search" value="" />
+                    </form>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Navigation
+        ================================================== -->
+        <div class="container">
+            <div class="sixteen columns">
+
+                <a href="#menu" class="menu-trigger"><i class="fa fa-bars"></i> Menu</a>
+                <nav id="navigation">
+                    <ul class="menu" id="responsive">
+                        <li><a href="index.html" class="current homepage" id="current">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#">Shop</a>
+                          @{Html.RenderAction("Shops", "Store");}
+                        </li>
+
+                        
+
+                        
+
+                        <li class="demo-button">
+                            <a href="#">About Us</a>
+                        </li>
+
+                        
+
+                        <li class="demo-button">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+ @RenderBody()
+        <!-- Footer
+        ================================================== -->
+        <div id="footer">
+            <!-- Container -->
+            <div class="container">
+                <div class="four columns">
+                    <img src="~/images/logo-footer.png" alt="" class="margin-top-10" />
+                    <p class="margin-top-15">Nulla facilisis feugiat magna, ut molestie metus hendrerit vitae. Vivamus tristique lectus at varius rutrum. Integer lobortis mauris non consectetur eleifend.</p>
+                </div>
+                <div class="four columns">
+                    <!-- Headline -->
+                    <h3 class="headline footer">Customer Service</h3>
+                    <span class="line"></span>
+                    <div class="clearfix"></div>
+                    <ul class="footer-links">
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">Delivery & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="four columns">
+                    <!-- Headline -->
+                    <h3 class="headline footer">My Account</h3>
+                    <span class="line"></span>
+                    <div class="clearfix"></div>
+                    <ul class="footer-links">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Wish List</a></li>
+                    </ul>
+                </div>
+                <div class="four columns">
+                    <!-- Headline -->
+                    <h3 class="headline footer">Newsletter</h3>
+                    <span class="line"></span>
+                    <div class="clearfix"></div>
+                    <p>Sign up to receive email updates on new product announcements, gift ideas, special promotions, sales and more.</p>
+                    <form action="#" method="get">
+                        <button class="newsletter-btn" type="submit">Join</button>
+                        <input class="newsletter" type="text" placeholder="mail@example.com" value="" />
+                    </form>
+                </div>
+            </div>
+            <!-- Container / End -->
+        </div>
+        <!-- Footer / End -->
+        <!-- Footer Bottom / Start -->
+        <div id="footer-bottom">
+            <!-- Container -->
+            <div class="container">
+                <div class="eight columns">© Copyright 2014 by <a href="#">trizzy</a>. All Rights Reserved.</div>
+                <div class="eight columns">
+                    <ul class="payment-icons">
+                        <li><img src="~/images/visa.png" alt="" /></li>
+                        <li><img src="~/images/mastercard.png" alt="" /></li>
+                        <li><img src="~/images/skrill.png" alt="" /></li>
+                        <li><img src="~/images/moneybookers.png" alt="" /></li>
+                        <li><img src="~/images/paypal.png" alt="" /></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container / End -->
+        </div>
+        <!-- Footer Bottom / End -->
+        <!-- Back To Top Button -->
+        <div id="backtotop"><a href="#"></a></div>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.jpanelmenu.js"></script>
+    <script src="~/Scripts/jquery.themepunch.plugins.min.js"></script>
+    <script src="~/Scripts/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Scripts/jquery.themepunch.showbizpro.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/hoverIntent.js"></script>
+    <script src="~/Scripts/superfish.js"></script>
+    <script src="~/Scripts/jquery.pureparallax.js"></script>
+    <script src="~/Scripts/jquery.pricefilter.js"></script>
+    <script src="~/Scripts/jquery.selectric.min.js"></script>
+    <script src="~/Scripts/jquery.royalslider.min.js"></script>
+    <script src="~/Scripts/SelectBox.js"></script>
+    <script src="~/Scripts/modernizr.custom.js"></script>
+    <script src="~/Scripts/waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/jquery.counterup.min.js"></script>
+    <script src="~/Scripts/jquery.tooltips.min.js"></script>
+    <script src="~/Scripts/jquery.isotope.min.js"></script>
+    <script src="~/Scripts/puregrid.js"></script>
+    <script src="~/Scripts/stacktable.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+   
+    @RenderSection("scripts", required: false)
+    
+
+</body>
+</html>

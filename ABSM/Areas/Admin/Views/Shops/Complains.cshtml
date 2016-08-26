@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ABSM.Models.Complain>
+
+@{
+    ViewBag.Title = "Complains";
+}
+
+<h2>Complains</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShopID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shop.Name)
+        </td>
+        
+    </tr>
+}
+
+</table>

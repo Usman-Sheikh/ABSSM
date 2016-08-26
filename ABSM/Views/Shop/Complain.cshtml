@@ -1,0 +1,53 @@
+﻿@model ABSM.Models.Complain
+
+@{
+    ViewBag.Title = "Complain";
+}
+
+
+
+<!-- Container -->
+<div class="container">
+    
+    <!-- Contact Form -->
+    <div class="twelve columns">
+        <div class="extra-padding left">
+            <h3 class="headline">Complains</h3><span class="line margin-bottom-25"></span><div class="clearfix"></div>
+            <!-- Contact Form -->
+            <section id="contact">
+                <!-- Success Message -->
+                <mark id="message"></mark>
+                <!-- Form -->
+               @using (Html.BeginForm()) { 
+                    <fieldset>
+                        <input type="hidden" value="@ViewBag.id" name="ShopID" />
+                        <div>
+                           @Html.LabelFor(m => m.Email)
+                           @Html.TextBoxFor(m => m.Email)
+                           @Html.ValidationMessageFor(m => m.Email)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.TransactionId)<span>Enter if you choose Paypal as your payment method</span>
+                            @Html.TextBoxFor(m => m.TransactionId)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.Phone)<span>Enter if you choose Easy Paisa / Cash On Delivery as your payment method</span>
+                            @Html.TextBoxFor(m => m.Phone)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.Message)
+                            @Html.TextAreaFor(m => m.Message)
+                            @Html.ValidationMessageFor(m => m.Message)
+                        </div>
+                    </fieldset>
+                    <div id="result"></div>
+                    <input type="submit" class="submit" id="submit" value="Send Message" />
+                    <div class="clearfix"></div>
+               }
+            </section>
+            <!-- Contact Form / End -->
+        </div>
+    </div>
+</div>
+<!-- Container / End -->
+<div class="margin-top-50"></div>

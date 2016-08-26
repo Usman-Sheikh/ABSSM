@@ -1,0 +1,62 @@
+﻿@model ABSM.Models.Shop
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Container -->
+<div class="container">
+    <!-- Slider -->
+    <div class="eleven columns">
+        <div class="slider-padding">
+          <img src="@Url.Content(Model.ImageUrl)" />
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- Content -->
+    <div class="five columns">
+        <div class="product-page">
+
+            <h3 class="headline">@Model.Name</h3><span class="line margin-bottom-25"></span><div class="clearfix"></div>
+            <!-- Project Description -->
+            <section class="project-section">
+                <!-- Text Parapgraph -->
+                <p class="margin-bottom-5">@Model.About</p>
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <ul>
+                        <li><a href="#">Like</a></li>
+                        <li class="share-facebook"><a href='@Model.FacbookLink'>Facebook</a></li>
+                        <li class="share-twitter"><a href="@Model.TwitterLink">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+            <br>
+            <!-- Accordion -->
+            <div class="accordion">
+                <!-- Section 1 -->
+                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="fa fa-flag"></i> Address</h3>
+                <div>
+                    <p>@Model.Address</p>
+                </div>
+                <!-- Section 2 -->
+                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="fa fa-cog"></i> Contact</h3>
+                <span>Phone:</span>@Model.Phone
+                <br />
+                <span>Mobile:</span>@Model.Phone
+                <!-- Section 3 -->
+                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="fa fa-user"></i> Email</h3>
+                <div>
+                    <p class="margin-bottom-10">@Model.Email</p>
+                   
+                </div>
+                <a href="@Url.Action("Complain","Shop" ,new {id = Model.ShopID })" class="button adc">Complain</a>
+            </div>
+            <!-- Accordion / End -->
+            <br>
+        </div>
+    </div>
+</div>
+<!-- Container / End -->
+
+<div class="margin-top-50"></div>
