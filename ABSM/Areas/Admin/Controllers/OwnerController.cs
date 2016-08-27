@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace ABSM.Areas.Admin.Controllers
@@ -73,7 +74,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg" || extension == ".png")
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     product.ImageUrl = path;
                 }
@@ -128,7 +129,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg" || extension == ".png")
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     product.ImageUrl = "~/Content/Images/" + filename;
                     product.ShopID = Convert.ToInt32(Session["Shop"].ToString());

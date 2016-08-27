@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.IO;
+using System.Web.Hosting;
 
 namespace ABSM.Areas.Admin.Controllers
 {
@@ -138,7 +139,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg" || extension == ".png")
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     shop.ImageUrl = "~/Content/Images/" + filename;
                 }
@@ -190,7 +191,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg" || extension == ".png")
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     shop.ImageUrl = "~/Content/Images/" + filename;
                     db.Entry(shop).State = EntityState.Modified;

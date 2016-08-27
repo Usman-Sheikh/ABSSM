@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ABSM.Models;
 using System.IO;
+using System.Web.Hosting;
 
 namespace ABSM.Areas.Admin.Controllers
 {
@@ -62,7 +63,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg"|| extension == ".png" )
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     product.ImageUrl = "~/Content/Images/"+filename;
                 }
@@ -119,7 +120,7 @@ namespace ABSM.Areas.Admin.Controllers
                 var extension = Path.GetExtension(filename).ToLower();
                 if (extension == ".jpg" || extension == ".png")
                 {
-                    path = Path.Combine(Server.MapPath("~/Content/Images/"), filename);
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
                     product.ImageUrl = "~/Content/Images/" + filename;
                     db.Entry(product).State = EntityState.Modified;
