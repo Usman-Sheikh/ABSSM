@@ -7,7 +7,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>@ViewBag.Title</title>
+    <title>AB Shopping Mall-@ViewBag.Title</title>
     <!-- Mobile Specific Metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -56,7 +56,7 @@
             <!-- Logo -->
             <div class="four columns">
                 <div id="logo">
-                    <h1><a href="index.html"><img src="~/images/logo.png" alt="Trizzy" /></a></h1>
+                    <h1><a href='@Url.Action("Index", "Store")'><img src="~/images/logo.png" alt="Trizzy" /></a></h1>
                 </div>
             </div>
 
@@ -66,53 +66,13 @@
                     <ul>
                         <li><a href='@Url.Action("Index", "ShoppingCart")'>Shopping Cart</a></li>
                        
-                        <li><a href="my-account.html">My Account</a></li>
+                        <li><a href='@Url.Action("Login", "Account")'>Login</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Shopping Cart -->
-            <div class="twelve columns">
-                <div id="cart">
-                    <!-- Button -->
-                    <div class="cart-btn">
-                        <a href="#" class="button adc">$178.00</a>
-                    </div>
-                    <div class="cart-list">
-                        <div class="arrow"></div>
-                        <div class="cart-amount">
-                            <span>2 items in the shopping cart</span>
-                        </div>
-                        <ul>
-                            <li>
-                                <a href="#"><img src="~/images/small_product_list_08.jpg" alt="" /></a>
-                                <a href="#">Converse All Star Trainers</a>
-                                <span>1 x $79.00</span>
-                                <div class="clearfix"></div>
-                            </li>
-                            <li>
-                                <a href="#"><img src="~/images/small_product_list_09.jpg" alt="" /></a>
-                                <a href="#">Tommy Hilfiger <br /> Shirt Beat</a>
-                                <span>1 x $99.00</span>
-                                <div class="clearfix"></div>
-                            </li>
-                        </ul>
-                        <div class="cart-buttons button">
-                            <a href="shopping-cart.html" class="view-cart"><span data-hover="View Cart"><span>View Cart</span></span></a>
-                            <a href="checkout-billing-details.html" class="checkout"><span data-hover="Checkout">Checkout</span></a>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                    </div>
-                </div>
-                <!-- Search -->
-                <nav class="top-search">
-                    <form action="#" method="get">
-                        <button><i class="fa fa-search"></i></button>
-                        <input class="search-field" type="text" placeholder="Search" value="" />
-                    </form>
-                </nav>
-            </div>
+            
         </div>
 
         <!-- Navigation
@@ -123,7 +83,7 @@
                 <a href="#menu" class="menu-trigger"><i class="fa fa-bars"></i> Menu</a>
                 <nav id="navigation">
                     <ul class="menu" id="responsive">
-                        <li><a href="index.html" class="current homepage" id="current">Home</a></li>
+                        <li><a href='@Url.Action("Index", "Store")' class="current homepage" id="current">Home</a></li>
                         <li class="dropdown">
                             <a href="#">Shop</a>
                           @{Html.RenderAction("Shops", "Store");}
@@ -134,13 +94,13 @@
                         
 
                         <li class="demo-button">
-                            <a href="#">About Us</a>
+                            <a href='@Url.Action("About", "Home")'>About Us</a>
                         </li>
 
                         
 
                         <li class="demo-button">
-                            <a href="#">Contact</a>
+                            <a href='@Url.Action("Contact", "Home")'>Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -176,22 +136,12 @@
                     <span class="line"></span>
                     <div class="clearfix"></div>
                     <ul class="footer-links">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Order History</a></li>
-                        <li><a href="#">Wish List</a></li>
+                        <li><a href='@Url.Action("Index", "ShoppingCart")'>My Cart</a></li>
+                        <li><a href='@Url.Action("Login", "Account")'>Login</a></li>
+                        <li><a href='@Url.Action("Register", "Account")'>Register</a></li>
                     </ul>
                 </div>
-                <div class="four columns">
-                    <!-- Headline -->
-                    <h3 class="headline footer">Newsletter</h3>
-                    <span class="line"></span>
-                    <div class="clearfix"></div>
-                    <p>Sign up to receive email updates on new product announcements, gift ideas, special promotions, sales and more.</p>
-                    <form action="#" method="get">
-                        <button class="newsletter-btn" type="submit">Join</button>
-                        <input class="newsletter" type="text" placeholder="mail@example.com" value="" />
-                    </form>
-                </div>
+                
             </div>
             <!-- Container / End -->
         </div>
@@ -200,7 +150,7 @@
         <div id="footer-bottom">
             <!-- Container -->
             <div class="container">
-                <div class="eight columns">© Copyright 2014 by <a href="#">trizzy</a>. All Rights Reserved.</div>
+                <div class="eight columns">© Copyright 2016 Ab Shopping Mall </div>
                 <div class="eight columns">
                     <ul class="payment-icons">
                         <li><img src="~/images/visa.png" alt="" /></li>

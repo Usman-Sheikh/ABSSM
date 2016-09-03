@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ABSM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace ABSM.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -25,6 +28,22 @@ namespace ABSM.Controllers
            
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public ActionResult Contact(Contact model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("Index","Store");
+            }
+
+            return View(model);
         }
     }
 }

@@ -50,8 +50,11 @@
                     <p class="margin-bottom-10">@Model.Email</p>
                    
                 </div>
-                <a href="@Url.Action("Complain","Shop" ,new {id = Model.ShopID })" class="button adc">Complain</a>
-            </div>
+              @if (Request.IsAuthenticated)
+              {
+                <a href="@Url.Action("Complain", "Shop", new { id = Model.ShopID })" class="button adc">Complain</a>
+              }
+             </div>
             <!-- Accordion / End -->
             <br>
         </div>

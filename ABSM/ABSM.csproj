@@ -207,11 +207,16 @@
     <Compile Include="Migrations\201608252045221_ComplainsModified.Designer.cs">
       <DependentUpon>201608252045221_ComplainsModified.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609031937167_5th.cs" />
+    <Compile Include="Migrations\201609031937167_5th.Designer.cs">
+      <DependentUpon>201609031937167_5th.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Complain.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DbPopulate.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -261,7 +266,7 @@
     <Content Include="Areas\Admin\Images\gallery\7.jpg" />
     <Content Include="Areas\Admin\Images\gallery\8.jpg" />
     <Content Include="Areas\Admin\Images\gallery\9.jpg" />
-    <Content Include="Areas\Admin\Images\users\avatar-1.jpg" />
+    <Content Include="Areas\Admin\Images\users\avatar-1.png" />
     <Content Include="Areas\Admin\Images\users\avatar-10.jpg" />
     <Content Include="Areas\Admin\Images\users\avatar-2.jpg" />
     <Content Include="Areas\Admin\Images\users\avatar-3.jpg" />
@@ -508,7 +513,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -643,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608252045221_ComplainsModified.resx">
       <DependentUpon>201608252045221_ComplainsModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609031937167_5th.resx">
+      <DependentUpon>201609031937167_5th.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
