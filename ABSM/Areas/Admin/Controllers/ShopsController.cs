@@ -119,7 +119,20 @@ namespace ABSM.Areas.Admin.Controllers
         // GET: Admin/Shops/Create
         public ActionResult Create()
         {
-            ViewBag.UserName = db.Users.OrderBy(u => u.UserName).ToList().Select(uu =>
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+                       .OrderBy(u => u.UserName).ToList();
+
+            var UsersList= new List<ApplicationUser>();
+            foreach (var item in shopkeepers)
+            {
+              var user = db.Shops.Select(x => x.UserName).Contains(item.UserName).ToString();  
+                if (user=="False")
+                {
+                    UsersList.Add(item);
+                }
+            }
+
+            ViewBag.UserName = UsersList.Select(uu =>
             new SelectListItem { Value = uu.UserName.ToString(), Text = uu.UserName }).ToList();
             return View();
         }
@@ -132,7 +145,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult Create(Shop shop, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0)
+            if ( doc != null )
             {
 
                 var filename = Path.GetFileName(doc.FileName);
@@ -156,7 +169,20 @@ namespace ABSM.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.UserName = db.Users.OrderBy(u => u.UserName).ToList().Select(uu =>
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+                       .OrderBy(u => u.UserName).ToList();
+
+            var UsersList = new List<ApplicationUser>();
+            foreach (var item in shopkeepers)
+            {
+                var user = db.Shops.Select(x => x.UserName).Contains(item.UserName).ToString();
+                if (user == "False")
+                {
+                    UsersList.Add(item);
+                }
+            }
+
+            ViewBag.UserName = UsersList.Select(uu =>
             new SelectListItem { Value = uu.UserName.ToString(), Text = uu.UserName }).ToList();
             return View(shop);
         }
@@ -173,7 +199,25 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+                       .OrderBy(u => u.UserName).ToList();
+
+            var UsersList = new List<ApplicationUser>();
+            foreach (var item in shopkeepers)
+            {
+                var user = db.Shops.Select(x => x.UserName).Contains(item.UserName).ToString();
+                if (user == "False")
+                {
+                    UsersList.Add(item);
+                }
+            }
+
+            ViewBag.UserName = UsersList.Select(uu =>
+            new SelectListItem { Value = uu.UserName.ToString(), Text = uu.UserName }).ToList();
             return View(shop);
+
+
         }
 
         // POST: Admin/Shops/Edit/5
@@ -184,7 +228,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult Edit( Shop shop, string ImageValue, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0  && ModelState.IsValid)
+            if (doc != null && ModelState.IsValid)
             {
 
                 var filename = Path.GetFileName(doc.FileName);
@@ -212,8 +256,9 @@ namespace ABSM.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = db.Users.OrderBy(u => u.UserName).ToList().Select(uu =>
-            new SelectListItem { Value = uu.UserName.ToString(), Text = uu.UserName }).ToList();
+           
+
+           
             return View(shop);
         }
 

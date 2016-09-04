@@ -67,7 +67,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult PCreate(Product product, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0)
+            if (doc != null)
             {
 
                 var filename = Path.GetFileName(doc.FileName);
@@ -122,7 +122,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult PEdit(Product product, string ImageValue, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0 && ModelState.IsValid)
+            if (doc != null && ModelState.IsValid)
             {
 
                 var filename = Path.GetFileName(doc.FileName);

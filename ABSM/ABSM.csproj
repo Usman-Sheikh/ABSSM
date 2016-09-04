@@ -211,6 +211,14 @@
     <Compile Include="Migrations\201609031937167_5th.Designer.cs">
       <DependentUpon>201609031937167_5th.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609042134158_ShopModified.cs" />
+    <Compile Include="Migrations\201609042134158_ShopModified.Designer.cs">
+      <DependentUpon>201609042134158_ShopModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609042204387_ProductModified.cs" />
+    <Compile Include="Migrations\201609042204387_ProductModified.Designer.cs">
+      <DependentUpon>201609042204387_ProductModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -650,6 +658,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609031937167_5th.resx">
       <DependentUpon>201609031937167_5th.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609042134158_ShopModified.resx">
+      <DependentUpon>201609042134158_ShopModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609042204387_ProductModified.resx">
+      <DependentUpon>201609042204387_ProductModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

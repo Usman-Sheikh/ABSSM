@@ -75,3 +75,5 @@ E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations._3rd.resources
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations._4rth.resources
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations.ComplainsModified.resources
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations._5th.resources
+E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations.ShopModified.resources
+E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations.ProductModified.resources
