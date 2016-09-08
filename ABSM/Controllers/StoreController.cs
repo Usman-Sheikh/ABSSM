@@ -35,6 +35,8 @@ namespace ABSM.Controllers
             ViewBag.Names = _store.GetShops();
             return PartialView("_Shops");
         }
+
+
         public async Task<ActionResult> Browse(int id, string name)
         {
             var categories = await _store.GetCategoriesByIdAsync(id);
@@ -83,5 +85,14 @@ namespace ABSM.Controllers
 
             return View(product);
         }
+
+
+        public ActionResult NewArrivals()
+        {
+            var products= _store.GetNewProducs();
+
+            return PartialView("_NewArrivals", products);
+        }
+
     }
 }

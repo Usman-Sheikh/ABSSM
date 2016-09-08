@@ -62,6 +62,13 @@ namespace ABSM.Services
         }
 
 
+        public IEnumerable<Product> GetNewProducs()
+        {
+            return _db.Products.Include("Shop").Include("Category").Take(10).OrderByDescending(x => x.Name).ToList();
+                
+        }
+
+
         public IList<SelectListItem> GetShops()
         {
             return _db.Shops.Select(S => new SelectListItem { Value = S.ShopID.ToString(), Text = S.Name }).ToList();

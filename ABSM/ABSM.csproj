@@ -640,6 +640,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\_RelatedProducts.cshtml" />
+    <Content Include="Views\Store\_NewArrivals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608161133103_initial.resx">

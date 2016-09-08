@@ -20,9 +20,13 @@ namespace ABSM.Models
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         [Required]
+        [Display(Name = "Short Description")]
         public string ShortDescription { get; set; }
+
+        [Display(Name = "Long Description")]
         [Required]
         public string LongDescription { get; set; }
+
         [Required]
         public int Quantity { get; set; }
         public Shop Shop { get; set; }
