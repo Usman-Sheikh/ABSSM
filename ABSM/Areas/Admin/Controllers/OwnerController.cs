@@ -20,7 +20,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult Index()
         {
             int shopid = Convert.ToInt32(Session["Shop"].ToString());
-            var complains = db.Complains.Where(c => c.ShopID == shopid);
+            var complains = db.Complains.Include("Shop").Where(c => c.ShopID == shopid);
             return View(complains);
         }
 
@@ -30,7 +30,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult ListProducts()
         {
             int shopid = Convert.ToInt32(Session["Shop"].ToString());
-            var products = db.Products.Where(p=>p.ShopID==shopid);
+            var products = db.Products.Include("Shop").Include("Category").Where(p=>p.ShopID==shopid);
             return View(products.ToList());
         }
 
@@ -172,7 +172,7 @@ namespace ABSM.Areas.Admin.Controllers
         }
 
         // POST: Admin/Products/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult PDeleteConfirmed(int id)
         {
@@ -187,7 +187,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult ListCategories()
         {
             int shopid = Convert.ToInt32(Session["Shop"].ToString());
-            var products = db.Categories.Where(p => p.ShopID == shopid);
+            var products = db.Categories.Include("Shop").Where(p => p.ShopID == shopid);
             return View(products.ToList());
         }
         public ActionResult Create()
@@ -223,6 +223,7 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ShopID = new SelectList(db.Shops, "ShopID", "Name", category.ShopID);
             return View(category);
         }
 
@@ -238,6 +239,7 @@ namespace ABSM.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ShopID = new SelectList(db.Shops, "ShopID", "Name", category.ShopID);
             return View(category);
         }
 
@@ -256,7 +258,7 @@ namespace ABSM.Areas.Admin.Controllers
         }
 
         // POST: Admin/Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

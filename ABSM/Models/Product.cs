@@ -10,6 +10,7 @@ namespace ABSM.Models
     {
         public int ProductID { get; set; }
 
+        [Display(Name = "Product Name")]
         [Required]
         public string Name { get; set; }
         [Required]
