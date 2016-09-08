@@ -314,6 +314,7 @@
     <Content Include="fonts\fontello0bee.eot" />
     <Content Include="fonts\fontello0bee.ttf" />
     <Content Include="fonts\fontello0bee.woff" />
+    <Content Include="images\AB MALL.png" />
     <Content Include="images\alert_boxes_close_ico.png" />
     <Content Include="images\bg\bedge_grunge.png" />
     <Content Include="images\bg\brushed_alu.png" />

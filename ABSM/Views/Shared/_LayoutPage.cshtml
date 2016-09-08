@@ -51,7 +51,7 @@
             <!-- Logo -->
             <div class="four columns">
                 <div id="logo">
-                    <h1><a href='@Url.Action("Index", "Store")'><img src="~/images/logo.png" alt="Trizzy" /></a></h1>
+                    <h1><a href='@Url.Action("Index", "Store")'><img src="~/images/AB MALL.png" alt="Trizzy" /></a></h1>
                 </div>
             </div>
 
@@ -61,7 +61,8 @@
                     <ul>
                         <li><a href='@Url.Action("Index", "ShoppingCart")'>Shopping Cart</a></li>
                        
-                        <li><a href='@Url.Action("Login", "Account")'>Login</a></li>
+                        @*<li><a href='@Url.Action("Login", "Account")'>Login</a></li>*@
+                        @Html.Partial("_LoginPartial")
                     </ul>
                 </div>
             </div>
@@ -109,7 +110,7 @@
             <!-- Container -->
             <div class="container">
                 <div class="four columns">
-                    <img src="~/images/logo-footer.png" alt="" class="margin-top-10" />
+                    <img src="~/images/AB MALL.png" alt="" class="margin-top-10" />
                     <p class="margin-top-15">Nulla facilisis feugiat magna, ut molestie metus hendrerit vitae. Vivamus tristique lectus at varius rutrum. Integer lobortis mauris non consectetur eleifend.</p>
                 </div>
                 <div class="four columns">

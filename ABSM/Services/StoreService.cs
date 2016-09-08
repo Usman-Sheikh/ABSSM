@@ -50,6 +50,11 @@ namespace ABSM.Services
                 
         }
 
+        public async Task<IEnumerable<Product>> GetProductsByShop(int id)
+        {
+            return await _db.Products.Take(10).OrderByDescending(x => x.Name).Where(s => s.ShopID == id).ToListAsync();
+
+        }
         public async Task<Product> GetProductByIdAsync(int id)
         {
             return await _db.Products.Include("Category")

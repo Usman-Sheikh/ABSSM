@@ -40,7 +40,7 @@ namespace ABSM.Controllers
             var categories = await _store.GetCategoriesByIdAsync(id);
             if (name == null && !Request.IsAjaxRequest())
             {
-                var products = await _store.GetProducts();
+                var products = await _store.GetProductsByShop(id);
                 var categoryProductVM = new CategoryProductViewModel
                 {
                     categories = categories,
