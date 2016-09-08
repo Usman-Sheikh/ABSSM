@@ -39,7 +39,7 @@
                 <td><img src="@Url.Content(item.Product.ImageUrl)" style="height:80px;" alt="" /></td>
                 <td class="cart-title">@Html.ActionLink(item.Product.Name,
                     "Details", "Store", new { id = item.ProductId }, null)</td>
-                <td>$@item.Product.Price</td>
+                <td>PKR @item.Product.Price</td>
                 <td id="item-count-@item.CartItemId">
                     @item.Count
                 </td>
@@ -77,7 +77,7 @@
             </tr>
             <tr>
                 <th>Order Total</th>
-                <td><strong>$ @Model.Total</strong></td>
+                <td><strong>PKR @Model.Total</strong></td>
             </tr>
         </table>
         <br>
