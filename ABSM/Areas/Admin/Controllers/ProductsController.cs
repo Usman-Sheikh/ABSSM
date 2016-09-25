@@ -61,7 +61,7 @@ namespace ABSM.Areas.Admin.Controllers
                 
                 var filename = Path.GetFileName(doc.FileName);
                 var extension = Path.GetExtension(filename).ToLower();
-                if (extension == ".jpg"|| extension == ".png" )
+                if (extension == ".jpg"|| extension == ".png" || extension == ".jpeg")
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
@@ -95,7 +95,7 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Include("Category").Include("Shop").Where(x => x.ProductID == id).SingleOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -113,7 +113,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult Edit(Product product,string ImageValue, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0 && ModelState.IsValid)
+            if (doc != null  && ModelState.IsValid)
             {
 
                 var filename = Path.GetFileName(doc.FileName);

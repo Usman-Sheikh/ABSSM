@@ -72,7 +72,7 @@ namespace ABSM.Areas.Admin.Controllers
 
                 var filename = Path.GetFileName(doc.FileName);
                 var extension = Path.GetExtension(filename).ToLower();
-                if (extension == ".jpg" || extension == ".png")
+                if (extension == ".jpg" || extension == ".png" || extension == ".jpeg")
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
@@ -88,7 +88,7 @@ namespace ABSM.Areas.Admin.Controllers
                     product.ShopID= Convert.ToInt32(Session["Shop"].ToString());
                     db.Products.Add(product);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ListProducts");
                 }
 
 
@@ -105,7 +105,7 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Include("Category").Include("Shop").Where(x=>x.ProductID==id).SingleOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -135,7 +135,7 @@ namespace ABSM.Areas.Admin.Controllers
                     product.ShopID = Convert.ToInt32(Session["Shop"].ToString());
                     db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ListProducts");
                 }
                 else
                 {
@@ -148,8 +148,9 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 product.ImageUrl = ImageValue;
                 db.Entry(product).State = EntityState.Modified;
+                product.ShopID = Convert.ToInt32(Session["Shop"].ToString());
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListProducts");
 
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
@@ -163,7 +164,7 @@ namespace ABSM.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Include("Category").Include("Shop").Where(x => x.ProductID == id).SingleOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -179,7 +180,7 @@ namespace ABSM.Areas.Admin.Controllers
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ListProducts");
         }
         #endregion
 

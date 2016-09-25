@@ -10,6 +10,7 @@
 {
     @Html.AntiForgeryToken()
     <input type="hidden" value='@Model.ImageUrl' name="ImageValue" />
+    <input type="hidden" value='@Model.ShopID' name="ShopID"/>
     <div class="form-horizontal">
         <h4>Product</h4>
         <hr />
