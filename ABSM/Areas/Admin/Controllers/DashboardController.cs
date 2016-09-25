@@ -68,12 +68,22 @@ namespace ABSM.Areas.Admin.Controllers
             else if(User.IsInRole("Shop"))
             {
                 var shop = db.Shops.Where(s => s.UserName == User.Identity.Name).SingleOrDefault();
-                Session["Shop"] = shop.ShopID;
-                return RedirectToAction("ListProducts", "Owner", new { area = "Admin" });
+                if (shop != null)
+                {
+                    Session["Shop"] = shop.ShopID;
+                    return RedirectToAction("ListProducts", "Owner", new { area = "Admin" });
+                }
+                else
+                {
+                    TempData["Message"] = "Shop not alloted, Please Contact Administrator";
+                    return RedirectToAction("Login");
+                }
+               
             }
 
             else
             {
+                TempData["Message"] = "You are not authorized";
                 return RedirectToAction("Login");
             }
            
@@ -81,6 +91,12 @@ namespace ABSM.Areas.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (TempData["Message"] == null)
+            {
+                TempData["Message"] = "";
+            }
+            
+            ViewBag.Message = TempData["Message"].ToString();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
