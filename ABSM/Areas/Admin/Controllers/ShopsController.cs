@@ -283,6 +283,10 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Shop shop = db.Shops.Find(id);
+            var products = db.Products.Where(c => c.ShopID == id).ToList();
+            db.Products.RemoveRange(products);
+            var categories = db.Categories.Where(c => c.ShopID == id).ToList();
+            db.Categories.RemoveRange(categories);
             db.Shops.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
