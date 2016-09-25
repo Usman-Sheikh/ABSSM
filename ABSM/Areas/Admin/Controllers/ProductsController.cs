@@ -118,7 +118,7 @@ namespace ABSM.Areas.Admin.Controllers
 
                 var filename = Path.GetFileName(doc.FileName);
                 var extension = Path.GetExtension(filename).ToLower();
-                if (extension == ".jpg" || extension == ".png")
+                if (extension == ".jpg" || extension == ".png" || extension == ".jpeg")
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
