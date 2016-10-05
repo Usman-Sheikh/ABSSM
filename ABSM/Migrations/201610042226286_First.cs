@@ -3,7 +3,7 @@ namespace ABSM.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class First : DbMigration
     {
         public override void Up()
         {
@@ -26,16 +26,17 @@ namespace ABSM.Migrations
                 c => new
                     {
                         ProductID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         CategoryID = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ImageUrl = c.String(),
-                        ShortDescription = c.String(),
-                        LongDescription = c.String(),
+                        ShortDescription = c.String(nullable: false),
+                        LongDescription = c.String(nullable: false),
+                        Quantity = c.Int(nullable: false),
                         ShopID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductID)
-                .ForeignKey("dbo.Categories", t => t.CategoryID, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.CategoryID, cascadeDelete: false)
                 .ForeignKey("dbo.Shops", t => t.ShopID, cascadeDelete: false)
                 .Index(t => t.CategoryID)
                 .Index(t => t.ShopID);
@@ -49,7 +50,7 @@ namespace ABSM.Migrations
                         ShopID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CategoryID)
-                .ForeignKey("dbo.Shops", t => t.ShopID, cascadeDelete: true)
+                .ForeignKey("dbo.Shops", t => t.ShopID, cascadeDelete: false)
                 .Index(t => t.ShopID);
             
             CreateTable(
@@ -57,18 +58,44 @@ namespace ABSM.Migrations
                 c => new
                     {
                         ShopID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Phone = c.String(),
-                        Mobile = c.String(),
-                        Email = c.String(),
+                        Name = c.String(nullable: false),
+                        Phone = c.String(nullable: false),
+                        Mobile = c.String(nullable: false),
+                        Email = c.String(nullable: false),
                         Address = c.String(),
                         ImageUrl = c.String(),
                         About = c.String(),
                         FacbookLink = c.String(),
                         TwitterLink = c.String(),
-                        UserName = c.String(),
+                        UserName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ShopID);
+            
+            CreateTable(
+                "dbo.Complains",
+                c => new
+                    {
+                        ComplainID = c.Int(nullable: false, identity: true),
+                        Email = c.String(nullable: false),
+                        TransactionId = c.String(),
+                        Phone = c.String(),
+                        Message = c.String(nullable: false),
+                        ShopID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ComplainID)
+                .ForeignKey("dbo.Shops", t => t.ShopID, cascadeDelete: true)
+                .Index(t => t.ShopID);
+            
+            CreateTable(
+                "dbo.Contacts",
+                c => new
+                    {
+                        ContactID = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        Email = c.String(nullable: false),
+                        Message = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.ContactID);
             
             CreateTable(
                 "dbo.OrderDetails",
@@ -103,6 +130,7 @@ namespace ABSM.Migrations
                         Email = c.String(nullable: false),
                         UserId = c.String(),
                         Total = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PaymentMode = c.String(),
                     })
                 .PrimaryKey(t => t.OrderId);
             
@@ -184,6 +212,7 @@ namespace ABSM.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.OrderDetails", "ProductId", "dbo.Products");
             DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
+            DropForeignKey("dbo.Complains", "ShopID", "dbo.Shops");
             DropForeignKey("dbo.CartItems", "ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "ShopID", "dbo.Shops");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
@@ -196,6 +225,7 @@ namespace ABSM.Migrations
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.OrderDetails", new[] { "ProductId" });
             DropIndex("dbo.OrderDetails", new[] { "OrderId" });
+            DropIndex("dbo.Complains", new[] { "ShopID" });
             DropIndex("dbo.Categories", new[] { "ShopID" });
             DropIndex("dbo.Products", new[] { "ShopID" });
             DropIndex("dbo.Products", new[] { "CategoryID" });
@@ -207,6 +237,8 @@ namespace ABSM.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
+            DropTable("dbo.Contacts");
+            DropTable("dbo.Complains");
             DropTable("dbo.Shops");
             DropTable("dbo.Categories");
             DropTable("dbo.Products");

@@ -96,7 +96,7 @@
                         <div class="clearfix"></div>
                     </div>
                 }
-                else
+                else if(User.IsInRole("Shop"))
                 {
                     <div id="sidebar-menu">
                         <ul>
@@ -275,9 +275,7 @@
     </div>
     <!-- END wrapper -->
 
-    <script>
-            var resizefunc = [];
-    </script>
+   @RenderSection("Scripts",false)
     <!-- jQuery  -->
     <script src="~/Areas/Admin/Scripts/jquery.min.js"></script>
     <script src="~/Areas/Admin/Scripts/tether.min.js"></script><!-- Tether for Bootstrap -->

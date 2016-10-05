@@ -16,7 +16,7 @@ using System.Web.Hosting;
 
 namespace ABSM.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin")]
+   [Authorize(Roles ="Admin")]
     public class ShopsController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -87,6 +87,9 @@ namespace ABSM.Areas.Admin.Controllers
                     }
                     await UserManager.AddToRoleAsync(user.Id, "Shop");
 
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Dashboard", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     return RedirectToAction("Index", "Shops");
                 }
                 AddErrors(result);

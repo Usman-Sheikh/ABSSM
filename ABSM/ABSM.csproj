@@ -187,37 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608161133103_initial.cs" />
-    <Compile Include="Migrations\201608161133103_initial.Designer.cs">
-      <DependentUpon>201608161133103_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608201847097_2nd.cs" />
-    <Compile Include="Migrations\201608201847097_2nd.Designer.cs">
-      <DependentUpon>201608201847097_2nd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608231712361_3rd.cs" />
-    <Compile Include="Migrations\201608231712361_3rd.Designer.cs">
-      <DependentUpon>201608231712361_3rd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608232220438_4rth.cs" />
-    <Compile Include="Migrations\201608232220438_4rth.Designer.cs">
-      <DependentUpon>201608232220438_4rth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608252045221_ComplainsModified.cs" />
-    <Compile Include="Migrations\201608252045221_ComplainsModified.Designer.cs">
-      <DependentUpon>201608252045221_ComplainsModified.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609031937167_5th.cs" />
-    <Compile Include="Migrations\201609031937167_5th.Designer.cs">
-      <DependentUpon>201609031937167_5th.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609042134158_ShopModified.cs" />
-    <Compile Include="Migrations\201609042134158_ShopModified.Designer.cs">
-      <DependentUpon>201609042134158_ShopModified.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609042204387_ProductModified.cs" />
-    <Compile Include="Migrations\201609042204387_ProductModified.Designer.cs">
-      <DependentUpon>201609042204387_ProductModified.cs</DependentUpon>
+    <Compile Include="Migrations\201610042226286_First.cs" />
+    <Compile Include="Migrations\201610042226286_First.Designer.cs">
+      <DependentUpon>201610042226286_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -512,7 +484,9 @@
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\switcher.js" />
     <Content Include="Scripts\waypoints.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -623,6 +597,11 @@
     <Content Include="Areas\Admin\Views\Shops\Complains.cshtml" />
     <Content Include="Areas\Admin\Views\Owner\Income.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\ForgotPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\ConfirmEmail.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\ResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\ForgotPasswordConfirmation.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
@@ -643,29 +622,8 @@
     <Content Include="Views\Store\_NewArrivals.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608161133103_initial.resx">
-      <DependentUpon>201608161133103_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608201847097_2nd.resx">
-      <DependentUpon>201608201847097_2nd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608231712361_3rd.resx">
-      <DependentUpon>201608231712361_3rd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608232220438_4rth.resx">
-      <DependentUpon>201608232220438_4rth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608252045221_ComplainsModified.resx">
-      <DependentUpon>201608252045221_ComplainsModified.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609031937167_5th.resx">
-      <DependentUpon>201609031937167_5th.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609042134158_ShopModified.resx">
-      <DependentUpon>201609042134158_ShopModified.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609042204387_ProductModified.resx">
-      <DependentUpon>201609042204387_ProductModified.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610042226286_First.resx">
+      <DependentUpon>201610042226286_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

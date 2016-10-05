@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using ABSM.Models;
+using System.Net.Mail;
 
 namespace ABSM
 {
@@ -18,8 +19,28 @@ namespace ABSM
     {
         public Task SendAsync(IdentityMessage message)
         {
+            var emailMessage = new MailMessage
+            {
+                From = new MailAddress("abshoppingmall@gmail.com", "AB SHOPPING MALL"),
+                Subject = message.Subject,
+                Body = message.Body,
+                IsBodyHtml = true
+            };
+
+            emailMessage.To.Add(message.Destination);
+
+            try
+            {
+                var client = new SmtpClient();
+                return client.SendMailAsync(emailMessage);
+            }
+            catch
+            {
+                return Task.FromResult(0);
+
+            }
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+
         }
     }
 
