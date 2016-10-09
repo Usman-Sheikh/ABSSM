@@ -122,7 +122,7 @@ namespace ABSM.Areas.Admin.Controllers
         // GET: Admin/Shops/Create
         public ActionResult Create()
         {
-            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("c3ecfd61-1f5f-495f-90a7-85fc15955264"))
                        .OrderBy(u => u.UserName).ToList();
 
             var UsersList= new List<ApplicationUser>();

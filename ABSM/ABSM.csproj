@@ -270,6 +270,7 @@
     <Content Include="Areas\Admin\Scripts\waves.js" />
     <Content Include="Content\base.css" />
     <Content Include="Content\blank.html" />
+    <Content Include="Content\green.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\grab.html" />
     <Content Include="Content\grabbing.html" />
