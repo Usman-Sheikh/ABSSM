@@ -22,7 +22,7 @@
                         </a>
                         <a href="@Url.Action("AddtoCart","ShoppingCart", new { id = product.ProductID })" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                     </div>
-                    <a href="#">
+                    <a href="@Url.Action("Details","Store", new { id = product.ProductID })">
                         <section>
                            
                             <h5>@product.Name</h5>
