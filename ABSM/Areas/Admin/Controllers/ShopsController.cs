@@ -153,7 +153,7 @@ namespace ABSM.Areas.Admin.Controllers
 
                 var filename = Path.GetFileName(doc.FileName);
                 var extension = Path.GetExtension(filename).ToLower();
-                if (extension == ".jpg" || extension == ".png")
+                if (extension == ".jpg" || extension == ".png" || extension == ".jpeg")
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
@@ -172,7 +172,7 @@ namespace ABSM.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("c3ecfd61-1f5f-495f-90a7-85fc15955264"))
                        .OrderBy(u => u.UserName).ToList();
 
             var UsersList = new List<ApplicationUser>();
@@ -203,7 +203,7 @@ namespace ABSM.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
-            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("f0d11509-27fc-48cf-9dbd-7983c4c828ed"))
+            var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("c3ecfd61-1f5f-495f-90a7-85fc15955264"))
                        .OrderBy(u => u.UserName).ToList();
 
             var UsersList = new List<ApplicationUser>();
@@ -236,7 +236,7 @@ namespace ABSM.Areas.Admin.Controllers
 
                 var filename = Path.GetFileName(doc.FileName);
                 var extension = Path.GetExtension(filename).ToLower();
-                if (extension == ".jpg" || extension == ".png")
+                if (extension == ".jpg" || extension == ".png" || extension == ".jpeg")
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
