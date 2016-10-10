@@ -76,7 +76,7 @@ namespace ABSM.Areas.Admin.Controllers
                 {
                     path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
                     doc.SaveAs(path);
-                    product.ImageUrl = path;
+                    product.ImageUrl = "~/Content/Images/" + filename;
                 }
                 else
                 {
