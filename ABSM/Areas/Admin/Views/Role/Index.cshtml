@@ -11,8 +11,8 @@
 <div class="row col-sm-12 col-lg-12 col-md-12">
 
 
-    @*<div class="col-sm-6 col-lg-6 col-md-6">
-        @*<div class="panel panel-primary">
+    <div class="col-sm-6 col-lg-6 col-md-6">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4>Role List</h4>
             </div>
@@ -24,16 +24,16 @@
                             <td class="col-sm-1 col-lg-5 col-md-5">
                                 <strong>@role.Text </strong>
                             </td>
-                            <td class="col-sm-1 col-lg-1 col-md-1">
+                            @*<td class="col-sm-1 col-lg-1 col-md-1">
                                 <span>@Html.ActionLink("Delete", "Delete", new { roleName = @role.Text }, new { @class = "dellink", color = "red", onclick = "return confirm('Are you sure to delete?')" })</span>
 
                                 @Html.ActionLink("Edit", "Edit", new { roleName = @role.Text })
-                            </td>
+                            </td>*@
                         </tr>
                     }
                 </table>
             </div> 
-         </div>*@
+         </div>
 
         @*<div class="panel panel-primary">
             <div class="panel-heading">
@@ -53,8 +53,7 @@
 
             </div> 
         </div>*@ 
-    </div>*@ <!--End First Column-->
-
+    </div>
     <div class="col-sm-6 col-lg-6 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
