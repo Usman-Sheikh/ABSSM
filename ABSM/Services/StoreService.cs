@@ -24,7 +24,10 @@ namespace ABSM.Services
         {
             return await _db.Shops.OrderBy(c => c.Name).ToArrayAsync();
         }
-
+        public async Task<IEnumerable<FileUpload>> GetFilesAsync()
+        {
+            return await _db.FileUploads.OrderBy(c => c.ID).ToArrayAsync();
+        }
 
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {

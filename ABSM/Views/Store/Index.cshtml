@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ABSM.Models.Shop>
+﻿@model ABSM.ViewModels.ShopViewModel
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -9,16 +9,16 @@
     <div class="tp-banner-container">
         <div class="tp-banner">
             <ul>
-                <!-- Slide 1  -->
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
-                    <img src="~/images/slider.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                    <div class="caption sfb fadeout" data-x="145" data-y="170" data-speed="400" data-start="800" data-easing="Power4.easeOut">
-                        <h2>Dress Sharp</h2>
-                        <h3>Learn from the classics</h3>
+                @foreach (var item in Model.FileUploads)
+                {
+                     <!-- Slide 1  -->
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
+                        <img src="@Url.Content(item.ImageUrl)" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         
-                    </div>
-                </li>
-                <!-- Slide 2  -->
+                    </li>
+                }
+               
+                @*<!-- Slide 2  -->
                 <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000">
                     <img src="~/images/slider2.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                     <div class="caption dark sfb fadeout" data-x="750" data-y="170" data-speed="400" data-start="800" data-easing="Power4.easeOut">
@@ -35,7 +35,7 @@
                         <h3>Pants and T-Shirts</h3>
                        
                     </div>
-                </li>
+                </li>*@
             </ul>
         </div>
     </div>
@@ -43,7 +43,7 @@
 
 
 <div class="container product-categories">
-    @foreach (var shop in Model)
+    @foreach (var shop in Model.Shops)
     {
         <div class="four columns">
             <a href="@Url.Action("Browse", new { id = shop.ShopID })" class="img-caption">

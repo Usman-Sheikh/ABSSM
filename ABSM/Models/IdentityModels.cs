@@ -36,6 +36,7 @@ namespace ABSM.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<FileUpload> FileUploads { get; set; }
 
         public static ApplicationDbContext Create()
         {

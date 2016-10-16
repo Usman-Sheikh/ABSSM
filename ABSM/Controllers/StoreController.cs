@@ -20,9 +20,15 @@ namespace ABSM.Controllers
         // GET: Store
         public async Task<ActionResult> Index()
         {
-
+            
             var shops = await _store.GetShopsAsync();
-            return View(shops);
+            var files = await _store.GetFilesAsync();
+            var ShopVm = new ShopViewModel
+            {
+                Shops= shops,
+                FileUploads=files
+            };
+            return View(ShopVm);
 
 
           

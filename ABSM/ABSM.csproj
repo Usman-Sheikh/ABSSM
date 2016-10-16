@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201610042226286_First.Designer.cs">
       <DependentUpon>201610042226286_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610161226572_FileUpload added.cs" />
+    <Compile Include="Migrations\201610161226572_FileUpload added.Designer.cs">
+      <DependentUpon>201610161226572_FileUpload added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -198,6 +202,7 @@
     <Compile Include="Models\Complain.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DbPopulate.cs" />
+    <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
@@ -217,6 +222,7 @@
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
+    <Compile Include="ViewModels\ShopViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\style.css" />
@@ -603,6 +609,9 @@
     <Content Include="Areas\Admin\Views\Dashboard\ResetPassword.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\ResetPasswordConfirmation.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Info.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\InfoDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Upload.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
@@ -625,6 +634,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610042226286_First.resx">
       <DependentUpon>201610042226286_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610161226572_FileUpload added.resx">
+      <DependentUpon>201610161226572_FileUpload added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

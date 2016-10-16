@@ -309,6 +309,64 @@ namespace ABSM.Areas.Admin.Controllers
             return View(complains);
         }
 
+        public ActionResult Info()
+        {
+            var info = db.Contacts.OrderByDescending(o => o.ContactID).ToList();
+            return View(info);
+        }
+
+
+        public ActionResult InfoDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+
+
+        public ActionResult Upload()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            FileUpload fileupload = new FileUpload();
+            string path;
+            if (file != null)
+            {
+
+                var filename = Path.GetFileName(file.FileName);
+                var extension = Path.GetExtension(filename).ToLower();
+                if (extension == ".jpg" || extension == ".png" || extension == ".jpeg")
+                {
+                    path = HostingEnvironment.MapPath(Path.Combine("~/Content/Images/", filename));
+                    file.SaveAs(path);
+                    fileupload.ImageUrl = "~/Content/Images/" + filename;
+                    db.FileUploads.Add(fileupload);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Only Image type file allowed");
+                    return View(fileupload);
+                }
+
+            }
+            
+            return View(fileupload);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

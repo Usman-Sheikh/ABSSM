@@ -70,3 +70,4 @@ E:\Project\ABSM\ABSM\obj\Debug\ABSM.pdb
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.csprojResolveAssemblyReference.cache
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations.First.resources
 E:\Project\ABSM\ABSM\obj\Debug\ABSM.csproj.GenerateResource.Cache
+E:\Project\ABSM\ABSM\obj\Debug\ABSM.Migrations.FileUploadadded.resources
