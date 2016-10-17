@@ -29,7 +29,11 @@ namespace ABSM.Models
         public string Address { get; set; }
         public string ImageUrl { get; set; }
         public string About { get; set; }
+        
+        [RegularExpression(@"/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/",ErrorMessage ="Please enter valid Url")]
         public string FacbookLink { get; set; }
+       
+        [RegularExpression(@"/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/", ErrorMessage = "Please enter valid Url")]
         public string TwitterLink { get; set; }
 
         [Required]

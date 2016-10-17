@@ -225,6 +225,7 @@
     <Compile Include="ViewModels\ShopViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Areas\Admin\Content\style.css" />
     <Content Include="Areas\Admin\fonts\fontawesome-webfont9efe.svg" />
     <Content Include="Areas\Admin\fonts\ioniconsaa26.svg" />
@@ -282,7 +283,6 @@
     <Content Include="Content\grabbing.html" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\style.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont862f.svg" />
     <Content Include="fonts\fontello0bee.svg" />
     <Content Include="Global.asax" />

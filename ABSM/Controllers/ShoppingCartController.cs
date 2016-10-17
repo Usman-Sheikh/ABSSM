@@ -71,7 +71,7 @@ namespace ABSM.Controllers
             {
                 if(model.PaymentMode== "Easy Paisa")
                 {
-                TempData["transactionId"] = "Your Payment Mode is Easy Paisa Please send the Total Amout PKR: "+result +"to 0345-8111997. You can track your order with your email id" ;
+                TempData["transactionId"] = "Your Payment Mode is Easy Paisa Please send the Total Amout PKR: "+result +" to 0345-8111997. " ;
 
                 }
                 else

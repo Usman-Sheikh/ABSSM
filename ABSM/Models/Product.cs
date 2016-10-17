@@ -16,8 +16,11 @@ namespace ABSM.Models
         [Required]
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+
         [Required]
+        [RegularExpression(@"^\d*\.?\d+$", ErrorMessage = "Please enter postive numbers")]
         public decimal Price { get; set; }
+       
         public string ImageUrl { get; set; }
         [Required]
         [Display(Name = "Short Description")]
@@ -28,6 +31,7 @@ namespace ABSM.Models
         public string LongDescription { get; set; }
 
         [Required]
+        [RegularExpression(@"^[1-9]\d*$", ErrorMessage = "Please enter postive numbers")]
         public int Quantity { get; set; }
         public Shop Shop { get; set; }
         [Required]

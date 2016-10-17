@@ -56,7 +56,7 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult Create(Product product, HttpPostedFileBase doc)
         {
             string path;
-            if (doc.ContentLength > 0)
+            if (doc != null)
             {
                 
                 var filename = Path.GetFileName(doc.FileName);
@@ -83,6 +83,7 @@ namespace ABSM.Areas.Admin.Controllers
                 
             }
 
+            ModelState.AddModelError("", "Please upload image");
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             ViewBag.ShopID = new SelectList(db.Shops, "ShopID", "Name", product.ShopID);
             return View(product);

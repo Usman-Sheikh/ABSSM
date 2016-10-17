@@ -4,39 +4,39 @@
     ViewBag.Title = "InfoDetails";
 }
 
-<h2>InfoDetails</h2>
+<h2>Message Details</h2>
 
-<div>
-    <h4>Message Details</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="card-block">
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    
-    @Html.ActionLink("Back to List", "Info")
-</p>
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back to List", "Info")
+    </p>

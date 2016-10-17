@@ -93,7 +93,7 @@ namespace ABSM.Areas.Admin.Controllers
 
 
             }
-
+            ModelState.AddModelError("", "Please upload image");
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             return View(product);
         }
@@ -276,12 +276,12 @@ namespace ABSM.Areas.Admin.Controllers
         public ActionResult ListOrders()
         {
             int shopid = Convert.ToInt32(Session["Shop"].ToString());
-            var orderDetails = db.OrderDetails.Where(p => p.Product.ShopID == shopid).ToList();
+            var orderDetails = db.OrderDetails.Where(p => p.Product.ShopID == shopid).Include("Order").ToList();
             return View(orderDetails);
         }
 
 
-        public ActionResult Order(int id)
+        public ActionResult Order(int? id)
         {
 
             var order = db.Orders.Where(o => o.OrderId == id).SingleOrDefault();
@@ -301,7 +301,7 @@ namespace ABSM.Areas.Admin.Controllers
             return View(result);
         }
         [HttpPost]
-        public ActionResult Income(int Month)
+        public ActionResult Income(int? Month)
         {
             if (Month > 0)
             {

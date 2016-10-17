@@ -172,6 +172,7 @@ namespace ABSM.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            ModelState.AddModelError("", "Please upload image");
             var shopkeepers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains("c3ecfd61-1f5f-495f-90a7-85fc15955264"))
                        .OrderBy(u => u.UserName).ToList();
 
